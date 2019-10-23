@@ -1,0 +1,35 @@
+import React, { useReducer, useContext } from 'react';
+
+const initialState = 0;
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment': return state + 1;
+    case 'decrement': return state - 1;
+  }
+};
+
+const CountContext = React.createContext();
+const CountProvider = ({ children }) => <CountContext.Provider value={useReducer(reducer, initialState)}>{children}</CountContext.Provider>;
+const Counter = () => {
+  const [count, dispatch] = useContext(CountContext);
+  return (
+    <div>
+      {count}
+      <button onClick={() => dispatch({ type: 'increment' })}>+1</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-1</button>
+    </div>
+  );
+};
+
+class MultiCounter extends React.Component {
+  render() {
+    return (
+      <>
+        <CountProvider>
+          <Counter/>
+          <Counter/>
+        </CountProvider>
+      </>
+    );
+  }
+}

@@ -1,0 +1,7 @@
+render() {
+  return (
+    <div id='example' className='red-text'}>
+      CSS Example
+    </div>
+  );
+}

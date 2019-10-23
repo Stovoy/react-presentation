@@ -1,0 +1,17 @@
+import React from 'react';
+
+class Calculator extends React.Component {
+  render() {
+    const title = 'I am calculator';
+    const numberOne = 1;
+    const numberTwo = 2;
+
+    return (
+      <div>
+        <div>{title}</div>
+
+        {numberOne} + {numberTwo} is {numberOne + numberTwo}
+      </div>
+    );
+  }
+}

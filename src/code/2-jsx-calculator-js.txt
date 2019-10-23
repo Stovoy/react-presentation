@@ -1,0 +1,13 @@
+import React from 'react';
+
+class Calculator extends React.Component {
+  render() {
+    return (
+      <div>
+        <div>I am Calculator</div>
+
+        1 + 1 is {1 + 1}
+      </div>
+    );
+  }
+}

@@ -1,0 +1,15 @@
+import React from 'react';
+
+class Calculator extends React.Component {
+  // ...
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.numberOne !== this.state.numberOne || nextState.numberTwo !== this.state.numberTwo;
+  }
+}
+
+class Number extends React.Component {
+  // ...
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.number !== this.props.number;
+  }
+}

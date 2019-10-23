@@ -1,0 +1,7 @@
+render() {
+  return (
+    <div style={{fontColor: 'red'}}>
+      CSS Example
+    </div>
+  );
+}

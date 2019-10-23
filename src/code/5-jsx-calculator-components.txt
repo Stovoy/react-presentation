@@ -1,0 +1,36 @@
+import React from 'react';
+
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      numberOne: 1,
+      numberTwo: 1
+    };
+  }
+
+  render() {
+    const title = 'I am calculator';
+    return (
+      <div>
+        <div>{title}</div>
+        <Number number={this.state.numberOne} update={(n) => this.setState({numberOne: n})}/>
+        +
+        <Number number={this.state.numberTwo} update={(n) => this.setState({numberTwo: n})}/>
+        =
+        {this.state.numberOne + this.state.numberTwo}
+      </div>
+    );
+  }
+}
+
+class Number extends React.Component {
+  render() {
+    return <input type="text" value={this.props.number} onChange={e => this.changeNumber(e)}/>
+  }
+
+  changeNumber(event) {
+    this.props.update(parseInt(event.target.value, 10) || this.props.number);
+  }
+}
